@@ -1,4 +1,4 @@
-k# 🛡️ PhishStory: Empowering Users to Fight Phishing Attacks
+# 🛡️ PhishStory: Empowering Users to Fight Phishing Attacks
 
 **PhishStory** is an innovative cybersecurity tool designed to help users **identify** and **report phishing attacks**. It offers a unique platform where users can **anonymously share** their phishing experiences, learn from others, and become more educated on phishing tactics to protect themselves online.
 
