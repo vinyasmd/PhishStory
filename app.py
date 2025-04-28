@@ -1,45 +1,69 @@
-from flask import Flask, render_template, request, redirect, url_for
-import json
 import os
+import random
+from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
-DATA_FILE = 'stories.json'
 
-def load_stories():
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, 'r') as f:
-            try:
-                return json.load(f)
-            except json.JSONDecodeError:
-                return []
-    return []
+# Database configuration
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///phishstory.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-def save_story(story):
-    stories = load_stories()
-    stories.append(story)
-    with open(DATA_FILE, 'w') as f:
-        json.dump(stories, f, indent=4)
+# Check and remove the old database if it exists
+if os.path.exists("phishstory.db"):
+    print("Removing old database...")
+    os.remove("phishstory.db")
+
+# Define the PhishStory model
+class PhishStory(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    story = db.Column(db.Text)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+# Create the tables in the DB
+with app.app_context():
+    print("Creating new database...")
+    db.create_all()
+
+# List of cybersecurity quotes
+quotes = [
+    "Cybersecurity is much more than an IT topic. It’s a business topic.",
+    "Security used to be an inconvenience sometimes, but now it’s a necessity all the time.",
+    "The best defense against phishing is awareness.",
+    "Think before you click!",
+    "Your story can help someone stay secure.",
+    "Sharing is caring – especially when it comes to cybersecurity!",
+    "Stay alert. Stay secure.",
+    "Every experience matters. Share yours!",
+    "One click can change everything. Share to protect others.",
+    "Together we build a safer internet."
+]
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    stories = PhishStory.query.order_by(PhishStory.timestamp.desc()).all()
+    random_quote = random.choice(quotes)
+    return render_template('index.html', stories=stories, random_quote=random_quote)
 
-@app.route('/add', methods=['GET', 'POST'])
-def add():
-    if request.method == 'POST':
-        story = {
-            'title': request.form['title'],
-            'tag': request.form['tag'],
-            'content': request.form['content']
-        }
-        save_story(story)
-        return redirect(url_for('view_stories'))
-    return render_template('add.html')
+@app.route('/submit', methods=['POST'])
+def submit():
+    story = request.form['story']
+    if story.strip() == '':
+        return redirect(url_for('index'))
 
-@app.route('/view')
-def view_stories():
-    stories = load_stories()
-    return render_template('view.html', stories=stories)
+    new_story = PhishStory(story=story)
+    db.session.add(new_story)
+    db.session.commit()
+    return redirect(url_for('index'))
+
+@app.route('/delete/<int:id>', methods=['POST'])
+def delete(id):
+    story = PhishStory.query.get_or_404(id)
+    db.session.delete(story)
+    db.session.commit()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
