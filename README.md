@@ -68,16 +68,20 @@ Run the app:
 Visit the app: Open your browser and navigate to http://127.0.0.1:5000 to start using PhishStory.
 
 📦 Requirements
+
 The required Python packages are listed in requirements.txt, including:
 Flask
 SQLAlchemy
 
 You can install them by running:
+
 pip install -r requirements.txt
 
 📜 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 📞 Contact
+
 Have questions or suggestions? Feel free to reach out to us through GitHub issues or contact vinyasmd.
 
