@@ -1,24 +1,46 @@
-# 🛡️ PhishStory: Empowering Users to Fight Phishing Attacks
+# 🛡️ PhishStory: 
+Empowering Users to Fight Phishing Attacks
 
 **PhishStory** is an innovative cybersecurity tool designed to help users **identify** and **report phishing attacks**. It offers a unique platform where users can **anonymously share** their phishing experiences, learn from others, and become more educated on phishing tactics to protect themselves online.
 
 ---
 
-## 🚀 Features
+🚀 Features
+Anonymous story sharing
+View all submitted stories
+Delete unwanted stories
+Dynamic motivational quotes
+Share stories to WhatsApp and Instagram for awareness
+User-friendly design with a focus on cybersecurity awareness.
 
-- **Submit Your Phishing Stories:** Share your own experiences and contribute to the community's knowledge.
-- **Learn from Others:** Browse and read phishing stories shared by other users to stay aware of the latest phishing schemes.
-- **Educational Insights:** Gain valuable insights and knowledge on how to recognize and defend against phishing attacks.
-- **Community-Driven:** Contribute to a growing collection of real-world phishing stories that help others stay safe.
+📥 How to Download and Run (Windows Users)
+Download the Code:
+Visit the repository: https://github.com/vinyasmd/PhishStory
+Click the green "Code" button
+Select "Download ZIP"
+Extract the ZIP file on your computer.
+Install Python (if not installed):
+Download and install from https://www.python.org/downloads/
 
----
+Open Command Prompt (CMD):
+Navigate to the extracted folder:
+cd path\to\PhishStory
+Create a Virtual Environment:
+python -m venv venv
+venv\Scripts\activate
+Install the Required Packages:
+pip install -r requirements.txt
 
-## 🛠️ Getting Started
+Run the Application:
+python app.py
+Open your browser and visit:
+http://127.0.0.1:5000
+
+For  linux users
 
 Follow these simple steps to get started with **PhishStory**:
 
 1. **Clone this repository** to your local machine:
-   ```bash
    git clone https://github.com/vinyasmd/PhishStory.git
 
 Navigate to the project directory:
@@ -32,16 +54,13 @@ python app.py
 
 Visit the app: Open your browser and navigate to http://127.0.0.1:5000 to start using PhishStory.
 
-💡 Contributing
-We welcome contributions to make PhishStory even better! Whether you have ideas for new features, improvements, or bug fixes, feel free to fork the repository and submit a pull request.
+📦 Requirements
+The required Python packages are listed in requirements.txt, including:
+Flask
+SQLAlchemy
 
-Steps for contributing:
-
-Fork this repository.
-Create a new branch (git checkout -b feature-name).
-Make your changes and commit them (git commit -m "Add feature-name").
-Push to the branch (git push origin feature-name).
-Open a pull request with a description of your changes.
+You can install them by running:
+pip install -r requirements.txt
 
 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details.
