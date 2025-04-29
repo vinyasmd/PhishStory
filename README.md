@@ -21,10 +21,15 @@ User-friendly design with a focus on cybersecurity awareness.
 📥 How to Download and Run (Windows Users)
 Download the Code:
 Visit the repository: https://github.com/vinyasmd/PhishStory
+
 Click the green "Code" button
+
 Select "Download ZIP"
+
 Extract the ZIP file on your computer.
+
 Install Python (if not installed):
+
 Download and install from https://www.python.org/downloads/
 
 Open Command Prompt (CMD):
