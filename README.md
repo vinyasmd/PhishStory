@@ -17,6 +17,12 @@ Share stories to WhatsApp and Instagram for awareness
 
 User-friendly design with a focus on cybersecurity awareness.
 
+🌐 Live Demo
+You can try PhishStory live here:
+
+👉 https://phishstory.onrender.com
+No installation needed — just open the link in your browser
+
 📥 How to Download and Run (Windows Users)
 
 Download the Code:
