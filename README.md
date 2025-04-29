@@ -7,10 +7,15 @@ Empowering Users to Fight Phishing Attacks
 
 🚀 Features
 Anonymous story sharing
+
 View all submitted stories
+
 Delete unwanted stories
+
 Dynamic motivational quotes
+
 Share stories to WhatsApp and Instagram for awareness
+
 User-friendly design with a focus on cybersecurity awareness.
 
 📥 How to Download and Run (Windows Users)
